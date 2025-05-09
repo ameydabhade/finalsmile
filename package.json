@@ -1,0 +1,11 @@
+{
+  "name": "smilepro-dental",
+  "version": "1.0.0",
+  "description": "Smilepro Dental Care Website",
+  "scripts": {
+    "start": "serve public"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+} 
