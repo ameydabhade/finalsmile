@@ -830,6 +830,166 @@
       display: block;
       width: 100%;
     }
+
+    /* Desktop Responsive Styles (won't affect mobile) */
+    @media (min-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      
+      section {
+        padding: 60px 30px;
+      }
+      
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+      }
+      
+      .header .logo {
+        max-width: 250px;
+        margin: 0;
+      }
+      
+      .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+      
+      .header-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        width: auto;
+      }
+      
+      .header-buttons .btn {
+        width: auto;
+        min-width: 180px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+      
+      .stats-container {
+        flex-wrap: nowrap;
+      }
+      
+      .feature-box {
+        display: flex;
+        align-items: center;
+      }
+      
+      .feature-box img {
+        width: 100px;
+      }
+      
+      .feature-box h3 {
+        font-size: 22px;
+      }
+      
+      .feature-box p {
+        font-size: 16px;
+      }
+      
+      .implant-type {
+        width: 48%;
+        display: inline-block;
+        vertical-align: top;
+      }
+      
+      /* Video transformations section - desktop */
+      .transformation-videos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .transformation-videos > div {
+        width: 30% !important;
+        max-width: 100% !important;
+      }
+      
+      /* Google reviews on desktop */
+      .google-reviews-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .google-review {
+        width: 31%;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 1%;
+      }
+      
+      /* CTA box - desktop */
+      .cta-box {
+        padding: 40px;
+        max-width: 900px;
+        margin: 40px auto;
+      }
+      
+      /* FAQ section - desktop */
+      .faq-section {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      /* Doctor profile - desktop */
+      .doctor-profile {
+        display: flex;
+        align-items: flex-start;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      .doctor-image {
+        width: 300px;
+        flex-shrink: 0;
+        margin-right: 40px;
+      }
+      
+      .doctor-info {
+        flex: 1;
+      }
+      
+      /* Clinic photos - desktop */
+      .clinic-photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      .clinic-photos img {
+        width: 24%;
+        margin-bottom: 20px;
+      }
+      
+      /* Footer - desktop */
+      footer .footer-content {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+      }
+      
+      footer .footer-section {
+        width: 32%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -900,41 +1060,43 @@
 
   <section class="header">
     <img src="Public/logo.jpg" alt="Smilepro Dental Care Logo" class="logo">
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 20px;" class="header-content">
       <p style="font-size: 14px; color: #035891;">📍1, Datta Niwas, Ground floor, Deep Bunglow Chowk, Model Colony, Pune 411016</p>
     </div>
-    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
-      <button class="btn btn-primary" style="width: 45%;">BOOK APPOINTMENT</button>
-      <a href="tel:+919075033667" class="btn btn-secondary" style="width: 45%; background-color: #035891; color: white; display: flex; align-items: center; justify-content: center;">CALL NOW ☏</a>
+    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;" class="header-buttons">
+      <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT</button>
+      <a href="tel:+919075033667" class="btn btn-secondary" style="background-color: #035891; color: white; display: flex; align-items: center; justify-content: center;">CALL NOW ☏</a>
     </div>
   </section>
 
-  <section>
-    <h1 class="section-title">Missing teeth or loose dentures? The best solution – Dental Implants!</h1>
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 10px;">
-      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;" src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
-    </div>
-    
-    <h2 style="color: #FF9C00; font-size: 22px; text-align: center; margin-bottom: 20px;">
-      <u><strong>Easy EMI options Starting from <span class="price-highlight">₹4999/month</span> Only.</strong></u>
-    </h2>
-    
-    <button class="btn btn-primary">BOOK APPOINTMENT</button>
-    <a href="tel:+919075033667" class="btn btn-secondary">CALL NOW ☏</a>
-    
-    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; margin-top: 20px;">
-      <h3 style="margin-bottom: 10px; color: #035891;"><strong>Why Choose Us?</strong></h3>
-      <ul style="list-style: none;">
-        <li style="margin-bottom: 10px;">✔ Leading Implant Center in Metro City</li>
-        <li style="margin-bottom: 10px;">✔ 10-Year Warranty on all dental implants</li>
-        <li style="margin-bottom: 10px;">✔ 15% Instant Treatment Discount</li>
-        <li style="margin-bottom: 10px;">✔ <strong class="highlight-text">No-Cost Financing</strong> for hassle-free payments</li>
-      </ul>
-      <button class="btn btn-primary pulse-element" style="margin-top: 15px;">Request a Call back ➤</button>
-      <small style="display: block; text-align: center; margin-top: 5px;">Complimentary Full-Mouth Checkup and Digital Scan <span style="color: #FF9C00; font-weight: bold;">(Worth ₹4999+₹1999)</span></small>
-    </div>
-  </section>
+  <div class="container">
+    <section>
+      <h1 class="section-title">Missing teeth or loose dentures? The best solution – Dental Implants!</h1>
+      
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 10px;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;" src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+      </div>
+      
+      <h2 style="color: #FF9C00; font-size: 22px; text-align: center; margin-bottom: 20px;">
+        <u><strong>Easy EMI options Starting from <span class="price-highlight">₹4999/month</span> Only.</strong></u>
+      </h2>
+      
+      <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT</button>
+      <a href="tel:+919075033667" class="btn btn-secondary">CALL NOW ☏</a>
+      
+      <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <h3 style="margin-bottom: 10px; color: #035891;"><strong>Why Choose Us?</strong></h3>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 10px;">✔ Leading Implant Center in Metro City</li>
+          <li style="margin-bottom: 10px;">✔ 10-Year Warranty on all dental implants</li>
+          <li style="margin-bottom: 10px;">✔ 15% Instant Treatment Discount</li>
+          <li style="margin-bottom: 10px;">✔ <strong class="highlight-text">No-Cost Financing</strong> for hassle-free payments</li>
+        </ul>
+        <button class="btn btn-primary pulse-element" style="margin-top: 15px;" onclick="openPopup()">Request a Call back ➤</button>
+        <small style="display: block; text-align: center; margin-top: 5px;">Complimentary Full-Mouth Checkup and Digital Scan <span style="color: #FF9C00; font-weight: bold;">(Worth ₹4999+₹1999)</span></small>
+      </div>
+    </section>
+  </div>
   
   <section style="background-color: #f0f8ff;">
     <h2 class="section-title">Why Our Patients Trust Us</h2>
@@ -1029,7 +1191,7 @@
       Witness the before and after the magic of our Painless Dental Implants!
     </p>
     
-    <div style="margin-bottom: 30px; display: flex; flex-direction: column; align-items: center;">
+    <div style="margin-bottom: 30px; display: flex; flex-direction: column; align-items: center;" class="transformation-videos">
       <div style="width: 60%; max-width: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); margin-bottom: 30px;">
         <video width="100%" autoplay muted loop playsinline style="display: block; border-radius: 10px;">
           <source src="Public/before/1.mp4" type="video/mp4">
@@ -1090,107 +1252,111 @@
   <section>
     <h2 class="section-title">Meet Our Chief Implantologist</h2>
     
-    <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
-      <img src="Public/doctor.jpg" alt="Dr. Pankaj Chivate" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
-      <h3 style="color: #035891; text-align: center;">Dr. Pankaj Chivate</h3>
-      <p style="color: #FF9C00; font-weight: 500; text-align: center; margin-bottom: 15px;">Founder & Chief Implantologist</p>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;" class="doctor-profile">
+      <div class="doctor-image">
+        <img src="Public/doctor.jpg" alt="Dr. Pankaj Chivate" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+        <h3 style="color: #035891; text-align: center;">Dr. Pankaj Chivate</h3>
+        <p style="color: #FF9C00; font-weight: 500; text-align: center; margin-bottom: 15px;">Founder & Chief Implantologist</p>
+      </div>
+      
+      <div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 20px;" class="doctor-info">
+        <p style="margin-bottom: 10px;">Dr. Pankaj Chivate is the Founder & Chief Implantologist at SmilePRO Dental Care, Pune and Goa with an extensive experience of 26 years.</p>
+        
+        <p style="margin-bottom: 10px;">He has done his BDS from GDC, Mumbai and further completed his Masters in Periodontology and Implantology from DYPU, Pune. He has extensively trained from Germany in Advanced Bone regeneration techniques & Implantology.</p>
+        
+        <p style="margin-bottom: 10px;">His drive in dentistry sees him practicing dental tourism in his Goa dental office, treating International patients for over 20 years now.</p>
+        
+        <h3 style="color: #035891; margin: 15px 0 10px;">Professional Affiliations</h3>
+        <ul class="bullet-list">
+          <li><i class="fas fa-certificate" style="color: #035891;"></i> Fellow of International Team of Implantology (ITI)</li>
+          <li><i class="fas fa-certificate" style="color: #035891;"></i> Fellow and Diplomate of International Congress of Oral Implantologists [ICOI]</li>
+          <li><i class="fas fa-certificate" style="color: #035891;"></i> Accredited member of The Indian Academy of Aesthetic & Cosmetic Dentistry (IAACD)</li>
+        </ul>
+        
+        <h3 style="color: #035891; margin: 15px 0 10px;">Expertise & Innovation</h3>
+        <p style="margin-bottom: 10px;">At his practice, he concentrates on implants, digital dentistry, 3D printing technology and is a pioneer in new concepts like J scan body in digital implantology.</p>
+        
+        <p style="margin-bottom: 10px;">His passion for Digital dentistry fueled him to start 3D ProGuide, an in-house training centre for dentists in Digital Implantology & provides guidance and solutions for Digital Implantology.</p>
+        
+        <p>He is also the Founder President of the Indian Society of Digital Dentistry (ISDD), established in 2022, with biennial International Digital Dentistry Conclaves in Pune hosting more than 800-1000 national & international delegates.</p>
+      </div>
+      
+      <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT WITH DR. CHIVATE</button>
     </div>
     
-    <div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-      <p style="margin-bottom: 10px;">Dr. Pankaj Chivate is the Founder & Chief Implantologist at SmilePRO Dental Care, Pune and Goa with an extensive experience of 26 years.</p>
-      
-      <p style="margin-bottom: 10px;">He has done his BDS from GDC, Mumbai and further completed his Masters in Periodontology and Implantology from DYPU, Pune. He has extensively trained from Germany in Advanced Bone regeneration techniques & Implantology.</p>
-      
-      <p style="margin-bottom: 10px;">His drive in dentistry sees him practicing dental tourism in his Goa dental office, treating International patients for over 20 years now.</p>
-      
-      <h3 style="color: #035891; margin: 15px 0 10px;">Professional Affiliations</h3>
-      <ul class="bullet-list">
-        <li><i class="fas fa-certificate" style="color: #035891;"></i> Fellow of International Team of Implantology (ITI)</li>
-        <li><i class="fas fa-certificate" style="color: #035891;"></i> Fellow and Diplomate of International Congress of Oral Implantologists [ICOI]</li>
-        <li><i class="fas fa-certificate" style="color: #035891;"></i> Accredited member of The Indian Academy of Aesthetic & Cosmetic Dentistry (IAACD)</li>
-      </ul>
-      
-      <h3 style="color: #035891; margin: 15px 0 10px;">Expertise & Innovation</h3>
-      <p style="margin-bottom: 10px;">At his practice, he concentrates on implants, digital dentistry, 3D printing technology and is a pioneer in new concepts like J scan body in digital implantology.</p>
-      
-      <p style="margin-bottom: 10px;">His passion for Digital dentistry fueled him to start 3D ProGuide, an in-house training centre for dentists in Digital Implantology & provides guidance and solutions for Digital Implantology.</p>
-      
-      <p>He is also the Founder President of the Indian Society of Digital Dentistry (ISDD), established in 2022, with biennial International Digital Dentistry Conclaves in Pune hosting more than 800-1000 national & international delegates.</p>
-    </div>
-    
-    <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT WITH DR. CHIVATE</button>
-  </section>
     <section style="background-color: #f0f8ff;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;">
-      <img src="Public/clinic/1.jpeg" alt="Clinic Photo 1" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-      <img src="Public/clinic/2.jpeg" alt="Clinic Photo 2" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-      <img src="Public/clinic/3.jpeg" alt="Clinic Photo 3" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-      <img src="Public/clinic/4.jpeg" alt="Clinic Photo 4" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-    </div>
-    
-    <button class="btn btn-primary">BOOK APPOINTMENT</button>
-  </section>
-  
-  <section>
-    <h2 class="section-title">Frequently Asked Questions about Dental Implants</h2>
-    
-    <div class="faq-item">
-      <div class="faq-question">What is the dental implant procedure like?</div>
-      <div class="faq-answer">
-        <em>The procedure involves placing a titanium implant into the jawbone, allowing it to fuse with the bone over time. This serves as a stable foundation for a prosthetic tooth. The process includes a consultation, implant placement, a healing period, and finally, the attachment of a customized crown.</em>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;" class="clinic-photos">
+        <img src="Public/clinic/1.jpeg" alt="Clinic Photo 1" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+        <img src="Public/clinic/2.jpeg" alt="Clinic Photo 2" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+        <img src="Public/clinic/3.jpeg" alt="Clinic Photo 3" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+        <img src="Public/clinic/4.jpeg" alt="Clinic Photo 4" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
       </div>
-    </div>
+      
+      <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT</button>
+    </section>
     
-    <div class="faq-item">
-      <div class="faq-question">Am I a suitable candidate for dental implants?</div>
-      <div class="faq-answer">
-        <em>Your overall health, bone density, and oral hygiene will be assessed to determine your candidacy for dental implants. A thorough examination will help us understand if implants are viable for you.</em>
+    <section>
+      <h2 class="section-title">Frequently Asked Questions about Dental Implants</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">What is the dental implant procedure like?</div>
+        <div class="faq-answer">
+          <em>The procedure involves placing a titanium implant into the jawbone, allowing it to fuse with the bone over time. This serves as a stable foundation for a prosthetic tooth. The process includes a consultation, implant placement, a healing period, and finally, the attachment of a customized crown.</em>
+        </div>
       </div>
-    </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Am I a suitable candidate for dental implants?</div>
+        <div class="faq-answer">
+          <em>Your overall health, bone density, and oral hygiene will be assessed to determine your candidacy for dental implants. A thorough examination will help us understand if implants are viable for you.</em>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Are there any risks or complications associated with dental implants?</div>
+        <div class="faq-answer">
+          <em>Like any surgical procedure, there are potential risks, such as infection or implant failure. However, these occurrences are rare. We will discuss these risks and take necessary precautions to minimize potential complications.</em>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What is the expected recovery time, and how should I care for the implant afterward?</div>
+        <div class="faq-answer">
+          <em>Recovery times vary, but you can expect a healing period of a few months. It's crucial to follow post-operative care instructions, including oral hygiene, a soft diet, and any prescribed medications to ensure a successful recovery.</em>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Is the dental implant procedure painful?</div>
+        <div class="faq-answer">
+          <em>No, the procedure is performed under local anesthesia, ensuring you won't feel pain during the surgery. Any discomfort afterward can typically be managed with prescribed pain medication.</em>
+        </div>
+      </div>
+    </section>
     
-    <div class="faq-item">
-      <div class="faq-question">Are there any risks or complications associated with dental implants?</div>
-      <div class="faq-answer">
-        <em>Like any surgical procedure, there are potential risks, such as infection or implant failure. However, these occurrences are rare. We will discuss these risks and take necessary precautions to minimize potential complications.</em>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">What is the expected recovery time, and how should I care for the implant afterward?</div>
-      <div class="faq-answer">
-        <em>Recovery times vary, but you can expect a healing period of a few months. It's crucial to follow post-operative care instructions, including oral hygiene, a soft diet, and any prescribed medications to ensure a successful recovery.</em>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">Is the dental implant procedure painful?</div>
-      <div class="faq-answer">
-        <em>No, the procedure is performed under local anesthesia, ensuring you won't feel pain during the surgery. Any discomfort afterward can typically be managed with prescribed pain medication.</em>
-      </div>
-    </div>
-  </section>
-  
  
   
   <footer>
-    <img src="Public/logo.jpg" alt="Smilepro Dental Care Logo" class="logo">
-    
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin: 30px 0;">
-      <div style="width: 100%; margin-bottom: 20px;">
-        <h3 style="margin-bottom: 10px; color: #035891;">Contact Us</h3>
-        <a href="tel:+919075033667" style="color: #035891; font-weight: bold; text-decoration: none;">+91 9075033667</a>
-        <p style="margin-top: 5px;"><a href="mailto:info@smilepro.in" style="color: #035891; text-decoration: none;">info@smilepro.in</a></p>
-        <p style="margin-top: 5px;"><a href="https://www.smilepro.in" style="color: #035891; text-decoration: none;">www.smilepro.in</a></p>
-      </div>
+    <div class="container">
+      <img src="Public/logo.jpg" alt="Smilepro Dental Care Logo" class="logo">
       
-      <div style="width: 100%; margin-bottom: 20px;">
-        <h3 style="margin-bottom: 10px; color: #035891;">Open Hours</h3>
-        <p style="color: #035891;">Mon-Sun: 10 AM – 7 PM</p>
-      </div>
-      
-      <div style="width: 100%;">
-        <h3 style="margin-bottom: 10px; color: #035891;">Location</h3>
-        <p style="color: #035891; font-weight: bold;">📍1, Datta Niwas, Ground floor, Deep Bunglow Chowk, Model Colony, Pune 411016</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin: 30px 0;" class="footer-content">
+        <div style="width: 100%; margin-bottom: 20px;" class="footer-section">
+          <h3 style="margin-bottom: 10px; color: #035891;">Contact Us</h3>
+          <a href="tel:+919075033667" style="color: #035891; font-weight: bold; text-decoration: none;">+91 9075033667</a>
+          <p style="margin-top: 5px;"><a href="mailto:info@smilepro.in" style="color: #035891; text-decoration: none;">info@smilepro.in</a></p>
+          <p style="margin-top: 5px;"><a href="https://www.smilepro.in" style="color: #035891; text-decoration: none;">www.smilepro.in</a></p>
+        </div>
+        
+        <div style="width: 100%; margin-bottom: 20px;" class="footer-section">
+          <h3 style="margin-bottom: 10px; color: #035891;">Open Hours</h3>
+          <p style="color: #035891;">Mon-Sun: 10 AM – 7 PM</p>
+        </div>
+        
+        <div style="width: 100%;" class="footer-section">
+          <h3 style="margin-bottom: 10px; color: #035891;">Location</h3>
+          <p style="color: #035891; font-weight: bold;">📍1, Datta Niwas, Ground floor, Deep Bunglow Chowk, Model Colony, Pune 411016</p>
+        </div>
       </div>
     </div>
   </footer>
