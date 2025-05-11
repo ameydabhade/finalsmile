@@ -419,16 +419,19 @@
 
     /* Sticky CTA Footer */
     .sticky-footer {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
       width: 100%;
       background-color: rgba(255, 255, 255, 0.95);
       box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
       padding: 10px 15px;
-      z-index: 999;
+      z-index: 1000;
       animation: slideUp 0.5s ease;
+      display: none; /* Initially hidden */
+      transition: transform 0.3s ease;
+      transform: translateY(100%);
+    }
+    
+    .sticky-footer.visible {
+      transform: translateY(0);
     }
     
     @keyframes slideUp {
@@ -1321,7 +1324,7 @@
     
     <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;" class="doctor-profile">
       <div class="doctor-image">
-        <img src="Public/doctor.jpg" alt="Dr. Pankaj Chivate" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+        <img src="Public/doctor.jpeg" alt="Dr. Pankaj Chivate" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
         <h3 style="color: #035891; text-align: center;">Dr. Pankaj Chivate</h3>
         <p style="color: #FF9C00; font-weight: 500; text-align: center; margin-bottom: 15px;">Founder & Chief Implantologist</p>
       </div>
@@ -1619,7 +1622,22 @@
       }
     }
     
-    // Initialize everything when the page loads
+    // Throttle function for better scroll performance
+    function throttle(callback, delay) {
+      let lastCall = 0;
+      return function(...args) {
+        const now = new Date().getTime();
+        if (now - lastCall < delay) {
+          return;
+        }
+        lastCall = now;
+        return callback(...args);
+      }
+    }
+    
+   
+    
+    // Check for sticky footer visibility on page load
     document.addEventListener('DOMContentLoaded', function() {
       // Start the countdown
       startCountdown();
@@ -1627,18 +1645,22 @@
       // Try to update FOMO counters (if they exist)
       updateFOMOCounters();
       
+
+      
       // Show popup after 2 seconds
       setTimeout(ensurePopupShown, 2000);
     });
-    
+
+
     // Update FOMO counters periodically (if they exist)
     setInterval(function() {
       updateFOMOCounters();
     }, 30000);
 
-    // Add click event listeners to all BOOK APPOINTMENT buttons
+    // Add click event listeners to all appointment buttons
     document.querySelectorAll('.btn-primary').forEach(button => {
-      if (button.textContent.trim() === 'BOOK APPOINTMENT') {
+      if (button.textContent.trim() === 'BOOK APPOINTMENT' || 
+          button.textContent.trim() === 'Request a Call back ➤') {
         button.addEventListener('click', openPopup);
       }
     });
@@ -1649,29 +1671,6 @@
         closePopup();
       }
     });
-
-    // Sticky Footer Logic
-    window.addEventListener('scroll', function() {
-      const stickyFooter = document.getElementById('stickyFooter');
-      const scrollPosition = window.scrollY;
-      const scrollThreshold = 300; // Show after scrolling 300px
-      
-      if (scrollPosition > scrollThreshold) {
-        stickyFooter.style.display = 'block';
-      } else {
-        stickyFooter.style.display = 'none';
-      }
-    });
-    
-    // Initial check for sticky footer
-    setTimeout(function() {
-      const scrollPosition = window.scrollY;
-      const scrollThreshold = 300;
-      
-      if (scrollPosition > scrollThreshold) {
-        document.getElementById('stickyFooter').style.display = 'block';
-      }
-    }, 2000);
 
     // Section visibility animation
     const observerOptions = {
