@@ -601,6 +601,22 @@
         background-position: -200% center;
       }
     }
+
+    /* CSS for textarea */
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      resize: vertical;
+    }
+    
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #035891;
+    }
   </style>
 </head>
 <body>
@@ -621,6 +637,9 @@
     <div class="popup-form">
       <span class="close-popup" onclick="closePopup()">&times;</span>
       <h2 style="color: #035891; margin-bottom: 20px; text-align: center;">Book Your Appointment</h2>
+      <div style="background-color: #f2f9ff; padding: 10px; border-radius: 5px; margin-bottom: 15px; border-left: 3px solid #FF9C00; text-align: center;">
+        <p style="margin: 0; color: #035891;"><strong>Includes:</strong> Free Checkup & Digital Scan <span style="color: #FF9C00; font-weight: bold;">Worth ₹6998</span></p>
+      </div>
       <form id="appointmentForm" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label for="name">Full Name</label>
@@ -635,32 +654,20 @@
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
+          <label for="problem">Describe Your Dental Concern</label>
+          <textarea id="problem" name="problem" rows="2" required placeholder="briefly describe your dental issue"></textarea>
+        </div>
+        <div class="form-group">
           <label for="date">Preferred Date</label>
           <input type="date" id="date" name="date" required>
         </div>
         <div class="form-group">
           <label for="time">Preferred Time</label>
           <select id="time" name="time" required>
-            <option value="">Select Time</option>
-            <option value="10:00">10:00 AM</option>
-            <option value="11:00">11:00 AM</option>
-            <option value="12:00">12:00 PM</option>
-            <option value="14:00">2:00 PM</option>
-            <option value="15:00">3:00 PM</option>
-            <option value="16:00">4:00 PM</option>
-            <option value="17:00">5:00 PM</option>
-            <option value="18:00">6:00 PM</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="service">Service Required</label>
-          <select id="service" name="service" required>
-            <option value="">Select Service</option>
-            <option value="single-implant">Single Dental Implant</option>
-            <option value="multiple-implant">Multiple Dental Implants</option>
-            <option value="all-on-4">All-on-4 Implants</option>
-            <option value="consultation">Initial Consultation</option>
-            <option value="other">Other</option>
+            <option value="">Select Time Slot</option>
+            <option value="morning">Morning (10:00 AM - 12:00 PM)</option>
+            <option value="afternoon">Afternoon (12:00 PM - 3:00 PM)</option>
+            <option value="evening">Evening (3:00 PM - 7:00 PM)</option>
           </select>
         </div>
         <button type="submit" class="submit-btn">Book Appointment</button>
@@ -702,7 +709,7 @@
         <li style="margin-bottom: 10px;">✔ <strong class="highlight-text">No-Cost Financing</strong> for hassle-free payments</li>
       </ul>
       <button class="btn btn-primary pulse-element" style="margin-top: 15px;">Request a Call back ➤</button>
-      <small style="display: block; text-align: center; margin-top: 5px;">Get Complimentary Full-Mouth Checkup</small>
+      <small style="display: block; text-align: center; margin-top: 5px;">Complimentary Full-Mouth Checkup and Digital Scan <span style="color: #FF9C00; font-weight: bold;">(Worth ₹4999+₹1999)</span></small>
     </div>
   </section>
   
@@ -735,7 +742,7 @@
         <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/testimonial1" frameborder="0" allowfullscreen></iframe>
       </div>
       <button class="btn btn-primary">Request a Call back ➤</button>
-      <small style="display: block; text-align: center; margin-top: 5px; color: #FFEEAE;">Get Complimentary Full-Mouth Checkup</small>
+      <small style="display: block; text-align: center; margin-top: 5px; color: #FFEEAE;">Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999)</small>
     </div>
     
     <div>
@@ -743,7 +750,7 @@
         <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/testimonial2" frameborder="0" allowfullscreen></iframe>
       </div>
       <button class="btn btn-primary">Request a Call back ➤</button>
-      <small style="display: block; text-align: center; margin-top: 5px; color: #FFEEAE;">Get Complimentary Full-Mouth Checkup</small>
+      <small style="display: block; text-align: center; margin-top: 5px; color: #FFEEAE;">Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999)</small>
     </div>
   </section>
   
@@ -765,7 +772,7 @@
     </p>
     
     <button class="btn btn-primary">Request a Call back ➤</button>
-    <small style="display: block; text-align: center; margin-top: 5px;">Get Complimentary Full-Mouth Checkup</small>
+    <small style="display: block; text-align: center; margin-top: 5px;">Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999)</small>
   </section>
   
   <section style="background-color: #f5f5f5;">
@@ -892,7 +899,7 @@
     <hr style="border-color: #FFEEAE; margin-bottom: 20px;">
     
     <p style="font-size: 18px; color: #FFEEAE; margin-bottom: 15px;">
-      <u><strong>Get a Complimentary Full-Mouth Dental Checkup with Our Chief Implantologists on visiting the clinic within 48 hours.</strong></u>
+      <u><strong>Get a Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999) with Our Chief Implantologists on visiting the clinic within 48 hours.</strong></u>
     </p>
     
     <p style="font-size: 18px; color: white; margin-bottom: 15px;">
@@ -904,7 +911,7 @@
     </p>
     
     <button class="btn btn-primary">Request a Call back ➤</button>
-    <small style="display: block; text-align: center; margin-top: 5px; color: white;">Get Complimentary Full-Mouth Checkup</small>
+    <small style="display: block; text-align: center; margin-top: 5px; color: white;">Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999)</small>
   </section>
   <section>
     <h2 class="section-title">Meet Our Chief Implantologist</h2>
@@ -1009,7 +1016,7 @@
     <div class="sticky-footer-content">
       <div class="footer-cta-text">
         <h3>Ready to Transform Your Smile?</h3>
-        <p>Limited Time Offer: ₹4999/month Only!</p>
+        <p>Free Checkup & Digital Scan <span style="background-color: rgba(255, 156, 0, 0.2); padding: 2px 5px; border-radius: 3px;">Worth ₹6998</span></p>
       </div>
       <div class="footer-cta-buttons">
         <button class="btn btn-primary" onclick="openPopup()">BOOK NOW</button>
@@ -1051,9 +1058,9 @@
         name: form.name.value,
         phone: form.phone.value,
         email: form.email.value,
+        problem: form.problem.value,
         date: form.date.value,
-        time: form.time.value,
-        service: form.service.value
+        time: form.time.value
       };
       
       // Show loading indicator or message
