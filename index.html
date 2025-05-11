@@ -1018,19 +1018,50 @@
       /* Doctor profile - desktop */
       .doctor-profile {
         display: flex;
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: center;
         max-width: 1000px;
         margin: 0 auto;
+        padding: 20px;
       }
-      
+
       .doctor-image {
-        width: 300px;
-        flex-shrink: 0;
-        margin-right: 40px;
+        text-align: center;
+        margin-bottom: 30px;
       }
-      
+
+      .doctor-image img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #035891;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+
       .doctor-info {
-        flex: 1;
+        background-color: #f0f8ff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        width: 100%;
+      }
+
+      @media (min-width: 768px) {
+        .doctor-profile {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 40px;
+        }
+
+        .doctor-image {
+          flex: 0 0 300px;
+          margin-bottom: 0;
+        }
+
+        .doctor-info {
+          flex: 1;
+        }
       }
       
       /* Clinic photos - desktop */
@@ -1169,6 +1200,28 @@
     @media (max-width: 768px) {
       .google-reviews-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer Map Styles */
+    .footer-map {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (min-width: 768px) {
+      .footer-map {
+        height: 400px;
       }
     }
   </style>
@@ -1521,47 +1574,50 @@
   <section>
     <h2 class="section-title">Meet Our Chief Implantologist</h2>
     
-    <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;" class="doctor-profile">
+    <div class="doctor-profile">
       <div class="doctor-image">
-        <img src="Public/doctor.jpeg" alt="Dr. Pankaj Chivate" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
-        <h3 style="color: #035891; text-align: center;">Dr. Pankaj Chivate</h3>
-        <p style="color: #FF9C00; font-weight: 500; text-align: center; margin-bottom: 15px;">Founder & Chief Implantologist</p>
+        <img src="Public/doctor.jpeg" alt="Dr. Pankaj Chivate">
+        <h3 style="color: #035891; margin-top: 15px;">Dr. Pankaj Chivate</h3>
+        <p style="color: #FF9C00; font-weight: 500; margin-top: 5px;">Founder & Chief Implantologist</p>
       </div>
       
-      <div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 20px;" class="doctor-info">
-        <p style="margin-bottom: 10px;">Dr. Pankaj Chivate is the Founder & Chief Implantologist at SmilePRO Dental Care, Pune and Goa with an extensive experience of 26 years.</p>
+      <div class="doctor-info">
+        <p style="margin-bottom: 15px;">Dr. Pankaj Chivate is the Founder & Chief Implantologist at SmilePRO Dental Care, Pune and Goa with an extensive experience of 26 years.</p>
         
-        <p style="margin-bottom: 10px;">He has done his BDS from GDC, Mumbai and further completed his Masters in Periodontology and Implantology from DYPU, Pune. He has extensively trained from Germany in Advanced Bone regeneration techniques & Implantology.</p>
+        <p style="margin-bottom: 15px;">He has done his BDS from GDC, Mumbai and further completed his Masters in Periodontology and Implantology from DYPU, Pune. He has extensively trained from Germany in Advanced Bone regeneration techniques & Implantology.</p>
         
-        <p style="margin-bottom: 10px;">His drive in dentistry sees him practicing dental tourism in his Goa dental office, treating International patients for over 20 years now.</p>
+        <p style="margin-bottom: 15px;">His drive in dentistry sees him practicing dental tourism in his Goa dental office, treating International patients for over 20 years now.</p>
         
-        <h3 style="color: #035891; margin: 15px 0 10px;">Professional Affiliations</h3>
+        <h3 style="color: #035891; margin: 20px 0 15px;">Professional Affiliations</h3>
         <ul class="bullet-list">
           <li><i class="fas fa-certificate" style="color: #035891;"></i> Fellow of International Team of Implantology (ITI)</li>
           <li><i class="fas fa-certificate" style="color: #035891;"></i> Fellow and Diplomate of International Congress of Oral Implantologists [ICOI]</li>
           <li><i class="fas fa-certificate" style="color: #035891;"></i> Accredited member of The Indian Academy of Aesthetic & Cosmetic Dentistry (IAACD)</li>
         </ul>
         
-        <h3 style="color: #035891; margin: 15px 0 10px;">Expertise & Innovation</h3>
-        <p style="margin-bottom: 10px;">At his practice, he concentrates on implants, digital dentistry, 3D printing technology and is a pioneer in new concepts like J scan body in digital implantology.</p>
+        <h3 style="color: #035891; margin: 20px 0 15px;">Expertise & Innovation</h3>
+        <p style="margin-bottom: 15px;">At his practice, he concentrates on implants, digital dentistry, 3D printing technology and is a pioneer in new concepts like J scan body in digital implantology.</p>
         
-        <p style="margin-bottom: 10px;">His passion for Digital dentistry fueled him to start 3D ProGuide, an in-house training centre for dentists in Digital Implantology & provides guidance and solutions for Digital Implantology.</p>
+        <p style="margin-bottom: 15px;">His passion for Digital dentistry fueled him to start 3D ProGuide, an in-house training centre for dentists in Digital Implantology & provides guidance and solutions for Digital Implantology.</p>
         
         <p>He is also the Founder President of the Indian Society of Digital Dentistry (ISDD), established in 2022, with biennial International Digital Dentistry Conclaves in Pune hosting more than 800-1000 national & international delegates.</p>
       </div>
-      
-      <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT WITH DR. CHIVATE</button>
     </div>
     
-    <section style="background-color: #f0f8ff;">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;" class="clinic-photos">
-        <img src="Public/clinic/1.jpeg" alt="Clinic Photo 1" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-        <img src="Public/clinic/2.jpeg" alt="Clinic Photo 2" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-        <img src="Public/clinic/3.jpeg" alt="Clinic Photo 3" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-        <img src="Public/clinic/4.jpeg" alt="Clinic Photo 4" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
-      </div>
-      
-      <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT</button>
+    <div style="text-align: center; margin-top: 30px;">
+      <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT WITH DR. CHIVATE</button>
+    </div>
+  </section>
+  
+  <section style="background-color: #f0f8ff;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;" class="clinic-photos">
+      <img src="Public/clinic/1.jpeg" alt="Clinic Photo 1" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+      <img src="Public/clinic/2.jpeg" alt="Clinic Photo 2" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+      <img src="Public/clinic/3.jpeg" alt="Clinic Photo 3" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+      <img src="Public/clinic/4.jpeg" alt="Clinic Photo 4" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+    </div>
+    
+    <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT</button>
   </section>
   
   <section>
@@ -1607,25 +1663,35 @@
   
   <footer>
     <div class="container">
-    <img src="Public/logo.jpg" alt="Smilepro Dental Care Logo" class="logo">
-    
+      <img src="Public/logo.jpg" alt="Smilepro Dental Care Logo" class="logo">
+      
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin: 30px 0;" class="footer-content">
         <div style="width: 100%; margin-bottom: 20px;" class="footer-section">
-        <h3 style="margin-bottom: 10px; color: #035891;">Contact Us</h3>
-        <a href="tel:+919075033667" style="color: #035891; font-weight: bold; text-decoration: none;">+91 9075033667</a>
-        <p style="margin-top: 5px;"><a href="mailto:info@smilepro.in" style="color: #035891; text-decoration: none;">info@smilepro.in</a></p>
-        <p style="margin-top: 5px;"><a href="https://www.smilepro.in" style="color: #035891; text-decoration: none;">www.smilepro.in</a></p>
-      </div>
-      
-        <div style="width: 100%; margin-bottom: 20px;" class="footer-section">
-        <h3 style="margin-bottom: 10px; color: #035891;">Open Hours</h3>
-        <p style="color: #035891;">Mon-Sun: 10 AM – 7 PM</p>
-      </div>
-      
-        <div style="width: 100%;" class="footer-section">
-        <h3 style="margin-bottom: 10px; color: #035891;">Location</h3>
-        <p style="color: #035891; font-weight: bold;">📍1, Datta Niwas, Ground floor, Deep Bunglow Chowk, Model Colony, Pune 411016</p>
+          <h3 style="margin-bottom: 10px; color: #035891;">Contact Us</h3>
+          <a href="tel:+919075033667" style="color: #035891; font-weight: bold; text-decoration: none;">+91 9075033667</a>
+          <p style="margin-top: 5px;"><a href="mailto:info@smilepro.in" style="color: #035891; text-decoration: none;">info@smilepro.in</a></p>
+          <p style="margin-top: 5px;"><a href="https://www.smilepro.in" style="color: #035891; text-decoration: none;">www.smilepro.in</a></p>
         </div>
+        
+        <div style="width: 100%; margin-bottom: 20px;" class="footer-section">
+          <h3 style="margin-bottom: 10px; color: #035891;">Open Hours</h3>
+          <p style="color: #035891;">Mon-Sun: 10 AM – 7 PM</p>
+        </div>
+        
+        <div style="width: 100%;" class="footer-section">
+          <h3 style="margin-bottom: 10px; color: #035891;">Location</h3>
+          <p style="color: #035891; font-weight: bold;">📍1, Datta Niwas, Ground floor, Deep Bunglow Chowk, Model Colony, Pune 411016</p>
+        </div>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <div class="footer-map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588856342!2d73.7890163!3d18.5626487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sSmilepro%20Dental%20Care!5e0!3m2!1sen!2sin!4v1647881234567!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
   </footer>
