@@ -1806,13 +1806,29 @@
     // Popup Form Functionality
     function openPopup() {
       const popup = document.getElementById('appointmentPopup');
+      const stickyCta = document.getElementById('stickyCta');
       popup.style.display = 'flex';
       document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+      // Hide sticky footer
+      stickyCta.classList.remove('visible');
+      setTimeout(() => {
+        stickyCta.style.display = 'none';
+      }, 300); // Wait for transition to complete
     }
 
     function closePopup() {
       document.getElementById('appointmentPopup').style.display = 'none';
       document.body.style.overflow = ''; // Restore scrolling
+      // Show sticky footer if scrolled past threshold
+      const scrollPosition = window.scrollY;
+      const scrollThreshold = 300;
+      const stickyCta = document.getElementById('stickyCta');
+      if (scrollPosition > scrollThreshold) {
+        stickyCta.style.display = 'block';
+        requestAnimationFrame(() => {
+          stickyCta.classList.add('visible');
+        });
+      }
     }
 
     function handleSubmit(event) {
