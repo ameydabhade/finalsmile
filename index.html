@@ -917,10 +917,59 @@
         font-size: 16px;
       }
       
+      /* Dental implants section - desktop */
+      .implant-types-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+        margin-top: 40px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
       .implant-type {
-        width: 48%;
-        display: inline-block;
-        vertical-align: top;
+        width: calc(50% - 15px);
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 15px;
+        background-color: white;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+      
+      .implant-type:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+      
+      .implant-type img {
+        max-width: 180px;
+        height: 140px;
+        object-fit: contain;
+        margin: 0 auto 20px;
+      }
+      
+      .implant-type h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+      
+      .implant-type p {
+        font-size: 16px;
+      }
+      
+      .implant-type ul {
+        flex: 1;
+        margin-top: 10px;
+      }
+      
+      .implant-type ul li {
+        margin-bottom: 15px;
+        font-size: 16px;
       }
       
       /* Video transformations section - desktop */
@@ -1144,58 +1193,62 @@
   
 
   
-  <section style="background-color: #035891; color: white;">
-    <h2 class="section-title" style="color: #FFEEAE;">When it comes to Dental Implants, choose <em><strong>Smilepro Dental Care</strong></em></h2>
-    
-    <p style="text-align: center; color: #FFEEAE; margin-bottom: 20px;">
-      At Smilepro Dental Care, we specialize in providing all types of dental implants to help you achieve a beautiful and functional smile using the latest procedures and technology.
-    </p>
-    
-    <div class="implant-type" style="color: #333;">
-      <img src="Public/implants/SingleImplant.png" alt="Single Implant">
-      <h3 style="text-align: center;"><strong>Only one Tooth Missing?</strong></h3>
-      <p style="text-align: center; margin-bottom: 15px;">A <strong>Single dental implant</strong> crown is your ideal solution. It will:</p>
-      <ul class="bullet-list">
-        <li><i class="fas fa-check"></i> Look and function just like a natural tooth</li>
-        <li><i class="fas fa-check"></i> Restore your natural chewing ability</li>
-        <li><i class="fas fa-check"></i> Preserve the underlying bone</li>
-        <li><i class="fas fa-check"></i> Save your money in the long run</li>
-      </ul>
+  <section style="background-color: #035891; color: white; padding-bottom: 70px;">
+    <div style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
+      <h2 class="section-title" style="color: #FFEEAE; font-size: 32px; margin-bottom: 20px;">When it comes to Dental Implants, choose <em><strong>Smilepro Dental Care</strong></em></h2>
+      
+      <p style="color: #FFEEAE; margin-bottom: 20px; font-size: 18px; line-height: 1.6;">
+        At Smilepro Dental Care, we specialize in providing all types of dental implants to help you achieve a beautiful and functional smile using the latest procedures and technology.
+      </p>
     </div>
     
-    <div class="implant-type" style="color: #333;">
-      <img src="Public/implants/MultipleImplant.png" alt="Multi Implant">
-      <h3 style="text-align: center;"><strong>Missing few teeth?</strong></h3>
-      <p style="text-align: center; margin-bottom: 15px;">A <strong>Multi-implant bridge</strong>. It is ideal for filling medium-sized gaps in your smile.</p>
-      <ul class="bullet-list">
-        <li><i class="fas fa-check"></i> Exceptional Strength</li>
-        <li><i class="fas fa-check"></i> A Permanent solution</li>
-        <li><i class="fas fa-check"></i> Bone Preservation</li>
-        <li><i class="fas fa-check"></i> A life long replacement for your natural teeth</li>
-      </ul>
-    </div>
-    
-    <div class="implant-type" style="color: #333;">
-      <img src="Public/implants/ImplantStab.png" alt="Implant Dentures">
-      <h3 style="text-align: center;"><strong>Missing Multiple Teeth?</strong></h3>
-      <p style="text-align: center; margin-bottom: 15px;"><strong>Implant Stabilized Over Dentures</strong> offer a stable alternative to regular dentures.</p>
-      <ul class="bullet-list">
-        <li><i class="fas fa-check"></i> Snap into place over 2-4 implants</li>
-        <li><i class="fas fa-check"></i> Help prevent bone loss</li>
-        <li><i class="fas fa-check"></i> Vastly improve your chewing and confidence</li>
-      </ul>
-    </div>
-    
-    <div class="implant-type" style="color: #333;">
-      <img src="Public/implants/FullSet.png" alt="All on 4">
-      <h3 style="text-align: center;"><strong>Missing a full set of teeth?</strong></h3>
-      <p style="text-align: center; margin-bottom: 15px;"><strong>All-on-4 & All-on-6 Dental Implants</strong> provide extra stability and support:</p>
-      <ul class="bullet-list">
-        <li><i class="fas fa-check"></i> Resistant to wear and stains</li>
-        <li><i class="fas fa-check"></i> A permanent solution that does not need removal</li>
-        <li><i class="fas fa-check"></i> Custom-designed to attach securely to 4-6 implants per arch</li>
-        <li><i class="fas fa-check"></i> It looks natural and strong enough to eat hard food</li>
-      </ul>
+    <div class="implant-types-container">
+      <div class="implant-type" style="color: #333;">
+        <img src="Public/implants/SingleImplant.png" alt="Single Implant">
+        <h3 style="text-align: center;"><strong>Only one Tooth Missing?</strong></h3>
+        <p style="text-align: center; margin-bottom: 15px;">A <strong>Single dental implant</strong> crown is your ideal solution. It will:</p>
+        <ul class="bullet-list">
+          <li><i class="fas fa-check"></i> Look and function just like a natural tooth</li>
+          <li><i class="fas fa-check"></i> Restore your natural chewing ability</li>
+          <li><i class="fas fa-check"></i> Preserve the underlying bone</li>
+          <li><i class="fas fa-check"></i> Save your money in the long run</li>
+        </ul>
+      </div>
+      
+      <div class="implant-type" style="color: #333;">
+        <img src="Public/implants/MultipleImplant.png" alt="Multi Implant">
+        <h3 style="text-align: center;"><strong>Missing few teeth?</strong></h3>
+        <p style="text-align: center; margin-bottom: 15px;">A <strong>Multi-implant bridge</strong>. It is ideal for filling medium-sized gaps in your smile.</p>
+        <ul class="bullet-list">
+          <li><i class="fas fa-check"></i> Exceptional Strength</li>
+          <li><i class="fas fa-check"></i> A Permanent solution</li>
+          <li><i class="fas fa-check"></i> Bone Preservation</li>
+          <li><i class="fas fa-check"></i> A life long replacement for your natural teeth</li>
+        </ul>
+      </div>
+      
+      <div class="implant-type" style="color: #333;">
+        <img src="Public/implants/ImplantStab.png" alt="Implant Dentures">
+        <h3 style="text-align: center;"><strong>Missing Multiple Teeth?</strong></h3>
+        <p style="text-align: center; margin-bottom: 15px;"><strong>Implant Stabilized Over Dentures</strong> offer a stable alternative to regular dentures.</p>
+        <ul class="bullet-list">
+          <li><i class="fas fa-check"></i> Snap into place over 2-4 implants</li>
+          <li><i class="fas fa-check"></i> Help prevent bone loss</li>
+          <li><i class="fas fa-check"></i> Vastly improve your chewing and confidence</li>
+        </ul>
+      </div>
+      
+      <div class="implant-type" style="color: #333;">
+        <img src="Public/implants/FullSet.png" alt="All on 4">
+        <h3 style="text-align: center;"><strong>Missing a full set of teeth?</strong></h3>
+        <p style="text-align: center; margin-bottom: 15px;"><strong>All-on-4 & All-on-6 Dental Implants</strong> provide extra stability and support:</p>
+        <ul class="bullet-list">
+          <li><i class="fas fa-check"></i> Resistant to wear and stains</li>
+          <li><i class="fas fa-check"></i> A permanent solution that does not need removal</li>
+          <li><i class="fas fa-check"></i> Custom-designed to attach securely to 4-6 implants per arch</li>
+          <li><i class="fas fa-check"></i> It looks natural and strong enough to eat hard food</li>
+        </ul>
+      </div>
     </div>
   </section>
   
