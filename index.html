@@ -638,8 +638,20 @@
       <span class="close-popup" onclick="closePopup()">&times;</span>
       <h2 style="color: #035891; margin-bottom: 20px; text-align: center;">Book Your Appointment</h2>
       <div style="background-color: #f2f9ff; padding: 10px; border-radius: 5px; margin-bottom: 15px; border-left: 3px solid #FF9C00; text-align: center;">
-        <p style="margin: 0; color: #035891;"><strong>Includes:</strong> Free Checkup & Digital Scan <span style="color: #FF9C00; font-weight: bold;">Worth ₹6998</span></p>
+        <p style="margin: 0; color: #035891;"><strong>Includes:</strong> Free Checkup & Digital Scan <span style="color: #FF9C00; font-weight: bold;">Worth ₹6999</span></p>
       </div>
+      
+
+      
+      <!-- Countdown Timer -->
+      <div style="background-color: #035891; padding: 12px; border-radius: 5px; margin-bottom: 15px; text-align: center; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <p style="margin: 0 0 5px 0; font-size: 13px;"><i class="fas fa-clock"></i> This offer expires in:</p>
+        <div id="countdown-timer" style="font-size: 18px; font-weight: bold; letter-spacing: 1px;">
+          <span id="hours">34</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        <p style="margin: 5px 0 0 0; font-size: 12px;">Book within the timer for guaranteed Free Checkup & Digital Scan</p>
+      </div>
+      
       <form id="appointmentForm" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label for="name">Full Name</label>
@@ -1016,7 +1028,7 @@
     <div class="sticky-footer-content">
       <div class="footer-cta-text">
         <h3>Ready to Transform Your Smile?</h3>
-        <p>Free Checkup & Digital Scan <span style="background-color: rgba(255, 156, 0, 0.2); padding: 2px 5px; border-radius: 3px;">Worth ₹6998</span></p>
+        <p>Free Checkup & Digital Scan <span style="background-color: rgba(255, 156, 0, 0.2); padding: 2px 5px; border-radius: 3px;">Worth ₹6999</span></p>
       </div>
       <div class="footer-cta-buttons">
         <button class="btn btn-primary" onclick="openPopup()">BOOK NOW</button>
@@ -1125,10 +1137,96 @@
       }, 5000);
     }
 
-    // Show popup on page load with a delay
-    window.addEventListener('load', function() {
-      setTimeout(openPopup, 2000); // Show popup after 2 seconds
+    // Countdown Timer
+    function startCountdown() {
+      // Set the timer for 34 hours from now (fixed)
+      let hoursLeft = 34;
+      let minutesLeft = 0;
+      let secondsLeft = 0;
+      
+      // Update the display initially
+      document.getElementById('hours').textContent = hoursLeft.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutesLeft.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = secondsLeft.toString().padStart(2, '0');
+      
+      const countdownInterval = setInterval(function() {
+        // Decrease seconds
+        secondsLeft--;
+        
+        // Handle time rollover
+        if (secondsLeft < 0) {
+          secondsLeft = 59;
+          minutesLeft--;
+          
+          if (minutesLeft < 0) {
+            minutesLeft = 59;
+            hoursLeft--;
+            
+            if (hoursLeft < 0) {
+              // Reset to 34 hours when it reaches zero
+              hoursLeft = 34;
+              minutesLeft = 0;
+              secondsLeft = 0;
+            }
+          }
+        }
+        
+        // Update the display
+        document.getElementById('hours').textContent = hoursLeft.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutesLeft.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = secondsLeft.toString().padStart(2, '0');
+      }, 1000);
+    }
+    
+    // FOMO Counters Animation - modified to handle removed element
+    function updateFOMOCounters() {
+      // Skip if elements don't exist anymore
+      const viewingCounter = document.getElementById('viewing-counter');
+      const spotsCounter = document.getElementById('spots-counter');
+      
+      if (viewingCounter && spotsCounter) {
+        // Random viewers between 3-9
+        const viewers = Math.floor(Math.random() * 7) + 3;
+        viewingCounter.textContent = viewers + ' people';
+        
+        // Spots counter logic - random between 1-3 with higher probability of 2-3
+        const spotsProb = Math.random();
+        let spots;
+        if (spotsProb < 0.2) {
+          spots = 1;
+        } else if (spotsProb < 0.6) {
+          spots = 2;
+        } else {
+          spots = 3;
+        }
+        spotsCounter.textContent = spots + ' spots';
+      }
+    }
+    
+    // Ensure popup is shown
+    function ensurePopupShown() {
+      const popup = document.getElementById('appointmentPopup');
+      if (popup && popup.style.display !== 'flex') {
+        openPopup();
+      }
+    }
+    
+    // Initialize everything when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Start the countdown
+      startCountdown();
+      
+      // Try to update FOMO counters (if they exist)
+      updateFOMOCounters();
+      
+      // Show popup after 2 seconds
+      setTimeout(ensurePopupShown, 2000);
     });
+    
+    // Update FOMO counters periodically (if they exist)
+    setInterval(function() {
+      updateFOMOCounters();
+    }, 30000);
 
     // Add click event listeners to all BOOK APPOINTMENT buttons
     document.querySelectorAll('.btn-primary').forEach(button => {
