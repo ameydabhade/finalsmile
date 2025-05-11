@@ -25,6 +25,19 @@
     img {
       max-width: 100%;
       height: auto;
+      border-radius: 10px;
+    }
+    
+    /* Video styling */
+    video, iframe {
+      border-radius: 10px;
+      max-width: 100%;
+    }
+    
+    /* YouTube container styling */
+    .video-container, [style*="padding-bottom: 56.25%"] {
+      border-radius: 10px;
+      overflow: hidden;
     }
     
     section {
@@ -790,6 +803,33 @@
     .google-cta a i {
       margin-left: 5px;
     }
+
+    /* Video and iframe styling */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      border: none;
+    }
+    
+    video {
+      border-radius: 10px;
+      display: block;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -872,8 +912,8 @@
   <section>
     <h1 class="section-title">Missing teeth or loose dentures? The best solution – Dental Implants!</h1>
     
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0;">
-      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 10px;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;" src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
     </div>
     
     <h2 style="color: #FF9C00; font-size: 22px; text-align: center; margin-bottom: 20px;">
@@ -926,16 +966,7 @@
     </div>
   </section>
   
-  <section style="background-color: #f0f8ff;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;">
-      <img src="Public/clinic/1.jpeg" alt="Clinic Photo 1" style="width: 48%; margin-bottom: 15px;">
-      <img src="Public/clinic/2.jpeg" alt="Clinic Photo 2" style="width: 48%; margin-bottom: 15px;">
-      <img src="Public/clinic/3.jpeg" alt="Clinic Photo 3" style="width: 48%; margin-bottom: 15px;">
-      <img src="Public/clinic/4.jpeg" alt="Clinic Photo 4" style="width: 48%; margin-bottom: 15px;">
-    </div>
-    
-    <button class="btn btn-primary">BOOK APPOINTMENT</button>
-  </section>
+
   
   <section style="background-color: #035891; color: white;">
     <h2 class="section-title" style="color: #FFEEAE;">When it comes to Dental Implants, choose <em><strong>Smilepro Dental Care</strong></em></h2>
@@ -1026,8 +1057,15 @@
       Explore the magic of your potential new smile today!
     </p>
     
-    <button class="btn btn-primary">Request a Call back ➤</button>
-    <small style="display: block; text-align: center; margin-top: 5px;">Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999)</small>
+    <div style="margin-bottom: 30px;">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/testimonial1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <button class="btn btn-primary">Request a Call back ➤</button>
+      <small style="display: block; text-align: center; margin-top: 5px; color: #FFEEAE;">Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999)</small>
+    </div>
+    
+ 
   </section>
   
   <section class="cta-box">
@@ -1081,6 +1119,16 @@
     </div>
     
     <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT WITH DR. CHIVATE</button>
+  </section>
+    <section style="background-color: #f0f8ff;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;">
+      <img src="Public/clinic/1.jpeg" alt="Clinic Photo 1" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+      <img src="Public/clinic/2.jpeg" alt="Clinic Photo 2" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+      <img src="Public/clinic/3.jpeg" alt="Clinic Photo 3" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+      <img src="Public/clinic/4.jpeg" alt="Clinic Photo 4" style="width: 48%; margin-bottom: 15px; border-radius: 10px;">
+    </div>
+    
+    <button class="btn btn-primary">BOOK APPOINTMENT</button>
   </section>
   
   <section>
