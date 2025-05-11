@@ -282,72 +282,113 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
       z-index: 1000;
       justify-content: center;
       align-items: center;
+      overflow-y: auto;
+      padding: 20px 0;
     }
 
     .popup-form {
       background-color: white;
       padding: 25px;
-      border-radius: 10px;
+      border-radius: 15px;
       width: 90%;
-      max-width: 400px;
+      max-width: 450px;
       position: relative;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      margin: auto;
+      animation: fadeInUp 0.4s ease;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .close-popup {
       position: absolute;
       right: 15px;
       top: 15px;
-      font-size: 24px;
+      font-size: 28px;
       cursor: pointer;
       color: #035891;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+    
+    .close-popup:hover {
+      background-color: #f0f8ff;
+      transform: rotate(90deg);
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       color: #035891;
       font-weight: 500;
+      font-size: 14px;
     }
 
     .form-group input,
-    .form-group select {
+    .form-group select,
+    .form-group textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px 15px;
       border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 8px;
       font-size: 16px;
+      transition: all 0.3s ease;
+      background-color: #f9f9f9;
     }
 
     .form-group input:focus,
-    .form-group select:focus {
+    .form-group select:focus,
+    .form-group textarea:focus {
       outline: none;
       border-color: #035891;
+      box-shadow: 0 0 0 3px rgba(3, 88, 145, 0.1);
+      background-color: #fff;
     }
 
     .submit-btn {
       background-color: #FF9C00;
       color: white;
-      padding: 12px 20px;
+      padding: 14px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       width: 100%;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
+      margin-top: 10px;
+      box-shadow: 0 4px 6px rgba(255, 156, 0, 0.2);
     }
 
     .submit-btn:hover {
       background-color: #e88c00;
+      transform: translateY(-2px);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(1px);
     }
 
     /* Sticky CTA Footer */
@@ -768,15 +809,13 @@
   <div class="popup-overlay" id="appointmentPopup">
     <div class="popup-form">
       <span class="close-popup" onclick="closePopup()">&times;</span>
-      <h2 style="color: #035891; margin-bottom: 20px; text-align: center;">Book Your Appointment</h2>
-      <div style="background-color: #f2f9ff; padding: 10px; border-radius: 5px; margin-bottom: 15px; border-left: 3px solid #FF9C00; text-align: center;">
+      <h2 style="color: #035891; margin-bottom: 20px; text-align: center; font-size: 22px;">Book Your Appointment</h2>
+      <div style="background-color: #f2f9ff; padding: 12px; border-radius: 8px; margin-bottom: 20px; border-left: 3px solid #FF9C00; text-align: center;">
         <p style="margin: 0; color: #035891;"><strong>Includes:</strong> Free Checkup & Digital Scan <span style="color: #FF9C00; font-weight: bold;">Worth ₹6999</span></p>
       </div>
       
-
-      
       <!-- Countdown Timer -->
-      <div style="background-color: #035891; padding: 12px; border-radius: 5px; margin-bottom: 15px; text-align: center; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      <div style="background-color: #035891; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
         <p style="margin: 0 0 5px 0; font-size: 13px;"><i class="fas fa-clock"></i> This offer expires in:</p>
         <div id="countdown-timer" style="font-size: 18px; font-weight: bold; letter-spacing: 1px;">
           <span id="hours">34</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
@@ -1139,11 +1178,14 @@
 
     // Popup Form Functionality
     function openPopup() {
-      document.getElementById('appointmentPopup').style.display = 'flex';
+      const popup = document.getElementById('appointmentPopup');
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
     }
 
     function closePopup() {
       document.getElementById('appointmentPopup').style.display = 'none';
+      document.body.style.overflow = ''; // Restore scrolling
     }
 
     function handleSubmit(event) {
