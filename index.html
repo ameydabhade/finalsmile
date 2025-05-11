@@ -617,6 +617,138 @@
       outline: none;
       border-color: #035891;
     }
+
+    /* Google Reviews Style */
+    .google-reviews-container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .google-reviews-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+    
+    .google-logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .google-logo img {
+      height: 24px;
+      margin-right: 10px;
+    }
+    
+    .google-rating {
+      display: flex;
+      align-items: center;
+    }
+    
+    .google-stars {
+      display: flex;
+      color: #FBBC05;
+      margin-right: 10px;
+    }
+    
+    .rating-number {
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+    }
+    
+    .review-count {
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .google-review {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .google-review:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+    
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      margin-right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .reviewer-info {
+      flex: 1;
+    }
+    
+    .reviewer-name {
+      font-weight: 500;
+      color: #333;
+      margin: 0 0 3px 0;
+    }
+    
+    .review-date {
+      font-size: 12px;
+      color: #777;
+    }
+    
+    .review-stars {
+      display: flex;
+      color: #FBBC05;
+      margin-bottom: 8px;
+    }
+    
+    .review-text {
+      color: #444;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    
+    .google-cta {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .google-cta a {
+      color: #4285F4;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .google-cta a:hover {
+      text-decoration: underline;
+    }
+    
+    .google-cta a i {
+      margin-left: 5px;
+    }
   </style>
 </head>
 <body>
@@ -788,20 +920,85 @@
   </section>
   
   <section style="background-color: #f5f5f5;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-      <div class="testimonial" style="width: 100%;">
-        <p>It was a very pain free comfortable experience. Doctor in charge is patient friendly and will answer all queries. Latest advance dental technology and services available here. Highly recommended for any dental services and treatment.</p>
-        <p style="margin-top: 10px;"><strong>-Jennifer D'souza</strong></p>
+    <h2 class="section-title">What Our Patients Say About Us</h2>
+    
+    <div class="google-reviews-container">
+      <div class="google-reviews-header">
+        <div class="google-logo">
+          <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height: 24px;">
+          <span style="color: #666; margin-left: 5px;">reviews</span>
+        </div>
+        <div class="google-rating">
+          <div class="google-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div>
+            <span class="rating-number">4.9</span>
+            <span class="review-count">(128 reviews)</span>
+          </div>
+        </div>
       </div>
       
-      <div class="testimonial" style="width: 100%;">
-        <p>Dr pankaj was clear, fast & precise. He explains well and does excellent treatment. He filled one of my front teeth and also extracted a broken tooth without any pain, each within minutes. Kudos to his excellence. One of the best i have experienced.</p>
-        <p style="margin-top: 10px;"><strong>-Krishna Iyer</strong></p>
+      <div class="google-review">
+        <div class="review-header">
+          <div class="reviewer-avatar">J</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Jennifer D'souza</p>
+            <p class="review-date">2 months ago</p>
+          </div>
+        </div>
+        <div class="review-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="review-text">It was a very pain free comfortable experience. Doctor in charge is patient friendly and will answer all queries. Latest advance dental technology and services available here. Highly recommended for any dental services and treatment.</p>
       </div>
       
-      <div class="testimonial" style="width: 100%;">
-        <p>Amazing and fast service, latest technology and an expert dentist makes SmilePro the best dentist clinic in Pune. Dr. Chivate was very courteous and professional and I look forward to going to him every time I visit Pune from Canada for all my dental needs. Thanks</p>
-        <p style="margin-top: 10px;"><strong>-Al Monteiro</strong></p>
+      <div class="google-review">
+        <div class="review-header">
+          <div class="reviewer-avatar">K</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Krishna Iyer</p>
+            <p class="review-date">1 month ago</p>
+          </div>
+        </div>
+        <div class="review-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="review-text">Dr pankaj was clear, fast & precise. He explains well and does excellent treatment. He filled one of my front teeth and also extracted a broken tooth without any pain, each within minutes. Kudos to his excellence. One of the best i have experienced.</p>
+      </div>
+      
+      <div class="google-review">
+        <div class="review-header">
+          <div class="reviewer-avatar">A</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Al Monteiro</p>
+            <p class="review-date">3 months ago</p>
+          </div>
+        </div>
+        <div class="review-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="review-text">Amazing and fast service, latest technology and an expert dentist makes SmilePro the best dentist clinic in Pune. Dr. Chivate was very courteous and professional and I look forward to going to him every time I visit Pune from Canada for all my dental needs. Thanks</p>
+      </div>
+      
+      <div class="google-cta">
+        <a href="https://g.page/r/smileprodental/review" target="_blank">Write a review on Google <i class="fas fa-external-link-alt"></i></a>
       </div>
     </div>
   </section>
