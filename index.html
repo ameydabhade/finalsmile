@@ -418,87 +418,81 @@
     }
 
     /* Sticky CTA Footer */
-    .sticky-footer {
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: #ffffff;
       box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-      padding: 10px 15px;
-      z-index: 1000;
-      animation: slideUp 0.5s ease;
-      display: none; /* Initially hidden */
-      transition: transform 0.3s ease;
+      padding: 15px;
+      z-index: 99999;
+      display: none;
+      opacity: 0;
+      transition: all 0.3s ease;
       transform: translateY(100%);
     }
     
-    .sticky-footer.visible {
+    .sticky-cta.visible {
+      opacity: 1;
       transform: translateY(0);
     }
     
-    @keyframes slideUp {
-      from {
-        transform: translateY(100%);
-      }
-      to {
-        transform: translateY(0);
-      }
-    }
-    
-    .sticky-footer-content {
+    .sticky-cta-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
+      gap: 15px;
     }
     
-    .footer-cta-text {
+    .sticky-cta-text {
       flex: 1;
-      text-align: left;
-      padding-right: 15px;
     }
     
-    .footer-cta-text h3 {
+    .sticky-cta-text h3 {
       color: #035891;
       margin: 0;
-      font-size: 16px;
+      font-size: 18px;
     }
     
-    .footer-cta-text p {
+    .sticky-cta-text p {
       color: #FF9C00;
       margin: 5px 0 0 0;
       font-size: 14px;
       font-weight: bold;
     }
     
-    .footer-cta-buttons {
+    .sticky-cta-buttons {
       display: flex;
       gap: 10px;
     }
     
-    .footer-cta-buttons .btn {
+    .sticky-cta-buttons .btn {
       margin: 0;
-      padding: 10px 15px;
+      padding: 10px 20px;
       width: auto;
       font-size: 14px;
       white-space: nowrap;
     }
     
     @media (max-width: 768px) {
-      .sticky-footer-content {
+      .sticky-cta-content {
         flex-direction: column;
-        gap: 10px;
-      }
-      
-      .footer-cta-text {
         text-align: center;
-        padding-right: 0;
       }
       
-      .footer-cta-buttons {
+      .sticky-cta-text {
+        margin-bottom: 10px;
+      }
+      
+      .sticky-cta-buttons {
         width: 100%;
       }
       
-      .footer-cta-buttons .btn {
+      .sticky-cta-buttons .btn {
         flex: 1;
       }
     }
@@ -863,6 +857,12 @@
         padding: 60px 30px;
       }
       
+      /* Video container desktop styles */
+      [style*="padding-bottom: 56.25%"] {
+        max-width: 800px;
+        margin: 20px auto;
+      }
+      
       .header {
         display: flex;
         justify-content: space-between;
@@ -1059,6 +1059,20 @@
   </style>
 </head>
 <body>
+  <!-- Sticky CTA Footer -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-cta-content">
+      <div class="sticky-cta-text">
+        <h3>Ready to Transform Your Smile?</h3>
+        <p>Free Checkup & Digital Scan Worth ₹6999</p>
+      </div>
+      <div class="sticky-cta-buttons">
+        <button class="btn btn-primary" onclick="openPopup()">BOOK APPOINTMENT</button>
+        <a href="tel:+919075033667" class="btn btn-secondary">CALL NOW ☏</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Animated Background -->
   <div class="animated-bg">
     <div class="circle"></div>
@@ -1159,7 +1173,7 @@
           <li style="margin-bottom: 10px;">✔ <strong class="highlight-text">No-Cost Financing</strong> for hassle-free payments</li>
       </ul>
         <button class="btn btn-primary pulse-element" style="margin-top: 15px;" onclick="openPopup()">Request a Call back ➤</button>
-        <small style="display: block; text-align: center; margin-top: 5px;">Complimentary Full-Mouth Checkup and Digital Scan <span style="color: #FF9C00; font-weight: bold;">(Worth ₹4999+₹1999)</span></small>
+        <small style="display: block; text-align: center; margin-top: 5px;">Complimentary Full-Mouth Checkup and Digital Scan <span style="color: black; font-weight: bold;">(Worth ₹4999+₹1999)</span></small>
     </div>
   </section>
   </div>
@@ -1290,12 +1304,11 @@
     </p>
     
     <div style="margin-bottom: 30px;">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/testimonial1" frameborder="0" allowfullscreen></iframe>
-      </div>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; border-radius: 10px;">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;" src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+     </div>
       <button class="btn btn-primary">Request a Call back ➤</button>
-      <small style="display: block; text-align: center; margin-top: 5px; color: #FFEEAE;">Complimentary Full-Mouth Checkup and Digital Scan (Worth ₹4999+₹1999)</small>
-    </div>
+       </div>
     
  
   </section>
@@ -1430,20 +1443,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Sticky Footer CTA -->
-  <div class="sticky-footer" id="stickyFooter">
-    <div class="sticky-footer-content">
-      <div class="footer-cta-text">
-        <h3>Ready to Transform Your Smile?</h3>
-        <p>Free Checkup & Digital Scan <span style="background-color: rgba(255, 156, 0, 0.2); padding: 2px 5px; border-radius: 3px;">Worth ₹6999</span></p>
-      </div>
-      <div class="footer-cta-buttons">
-        <button class="btn btn-primary" onclick="openPopup()">BOOK NOW</button>
-        <a href="tel:+919075033667" class="btn btn-secondary">CALL US</a>
-      </div>
-    </div>
-  </div>
 
   <script>
     // Simple FAQ accordion functionality
@@ -1695,6 +1694,43 @@
     // Add 3D card effect to elements
     document.querySelectorAll('.implant-type, .feature-box, .testimonial').forEach(card => {
       card.classList.add('card-3d');
+    });
+
+    // Sticky CTA Logic
+    window.addEventListener('scroll', function() {
+      const stickyCta = document.getElementById('stickyCta');
+      const scrollPosition = window.scrollY;
+      const scrollThreshold = 300; // Show after scrolling 300px
+      
+      if (scrollPosition > scrollThreshold) {
+        stickyCta.style.display = 'block';
+        // Allow display to take effect before adding the visible class
+        requestAnimationFrame(() => {
+          stickyCta.classList.add('visible');
+        });
+      } else {
+        stickyCta.classList.remove('visible');
+        // Wait for transition to complete before hiding
+        setTimeout(function() {
+          if (!stickyCta.classList.contains('visible')) {
+            stickyCta.style.display = 'none';
+          }
+        }, 300);
+      }
+    });
+    
+    // Check for sticky CTA visibility on initial load
+    window.addEventListener('load', function() {
+      const scrollPosition = window.scrollY;
+      const scrollThreshold = 300;
+      
+      if (scrollPosition > scrollThreshold) {
+        const stickyCta = document.getElementById('stickyCta');
+        stickyCta.style.display = 'block';
+        requestAnimationFrame(() => {
+          stickyCta.classList.add('visible');
+        });
+      }
     });
   </script>
 </body>
