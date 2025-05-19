@@ -1111,6 +1111,23 @@
           max-width: 1000px;
           margin: 0 auto;
           padding: 20px;
+          position: relative;
+          background-color: #ffffff;
+          z-index: 1;
+          border-radius: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .doctor-profile::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #ffffff;
+          z-index: -1;
+          border-radius: 15px;
         }
 
         .doctor-image {
@@ -1355,7 +1372,7 @@
           <button class="btn btn-primary" onclick="openPopup()">
             BOOK APPOINTMENT
           </button>
-          <a href="tel:+919075033667" class="btn btn-secondary">CALL NOW ☏</a>
+          <a href="tel:+919595670092" class="btn btn-secondary">CALL NOW ☏</a>
         </div>
       </div>
     </div>
@@ -1368,7 +1385,7 @@
     </div>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/919075033667" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919595670092" class="whatsapp-float" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1421,13 +1438,13 @@
             id="countdown-timer"
             style="font-size: 18px; font-weight: bold; letter-spacing: 1px"
           >
-            <span id="hours">34</span>:<span id="minutes">00</span>:<span
+            <span id="minutes">20</span>:<span
               id="seconds"
               >00</span
             >
           </div>
           <p style="margin: 5px 0 0 0; font-size: 12px">
-            Book within the timer for guaranteed Free Consultation & Digital intraoral scan
+            Book within the next 20 minutes for guaranteed Free Consultation & Digital intraoral scan
           </p>
         </div>
 
@@ -1510,7 +1527,7 @@
           BOOK APPOINTMENT
         </button>
         <a
-          href="tel:+919075033667"
+          href="tel:+919595670092"
           class="btn btn-secondary"
           style="
             background-color: #035891;
@@ -1555,7 +1572,7 @@
         <button class="btn btn-primary" onclick="openPopup()">
           BOOK APPOINTMENT
         </button>
-        <a href="tel:+919075033667" class="btn btn-secondary">CALL NOW ☏</a>
+        <a href="tel:+919595670092" class="btn btn-secondary">CALL NOW ☏</a>
 
         <div
           style="
@@ -2280,9 +2297,9 @@
           <div style="width: 100%; margin-bottom: 20px" class="footer-section">
             <h3 style="margin-bottom: 10px; color: #035891">Contact Us</h3>
             <a
-              href="tel:+919075033667"
+              href="tel:+919595670092"
               style="color: #035891; font-weight: bold; text-decoration: none"
-              >+91 9075033667</a
+              >+91 9595670092</a
             >
             <p style="margin-top: 5px">
               <a
@@ -2458,15 +2475,11 @@
 
       // Countdown Timer
       function startCountdown() {
-        // Set the timer for 34 hours from now (fixed)
-        let hoursLeft = 34;
-        let minutesLeft = 0;
+        // Set the timer for 20 minutes
+        let minutesLeft = 20;
         let secondsLeft = 0;
 
         // Update the display initially
-        document.getElementById("hours").textContent = hoursLeft
-          .toString()
-          .padStart(2, "0");
         document.getElementById("minutes").textContent = minutesLeft
           .toString()
           .padStart(2, "0");
@@ -2484,22 +2497,13 @@
             minutesLeft--;
 
             if (minutesLeft < 0) {
-              minutesLeft = 59;
-              hoursLeft--;
-
-              if (hoursLeft < 0) {
-                // Reset to 34 hours when it reaches zero
-                hoursLeft = 34;
-                minutesLeft = 0;
-                secondsLeft = 0;
-              }
+              // Reset to 20 minutes when it reaches zero
+              minutesLeft = 20;
+              secondsLeft = 0;
             }
           }
 
           // Update the display
-          document.getElementById("hours").textContent = hoursLeft
-            .toString()
-            .padStart(2, "0");
           document.getElementById("minutes").textContent = minutesLeft
             .toString()
             .padStart(2, "0");
