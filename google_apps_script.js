@@ -1,76 +1,66 @@
-
-
 function doGet(e) {
   try {
-    
     const params = e.parameter;
     const callback = params.callback;
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    
-    
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Don't Touch");
+
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
-        'Timestamp',
         'Name',
-        'Phone',
         'Email',
-        'Problem',
+        'Phone',
+        'Response',
+        'Platform',
         'Date',
-        'Time'
+        'Time',
+        'Timestamp'
       ]);
     }
-    
-    
+
     const name = params.name || '';
-    const phone = params.phone || '';
     const email = params.email || '';
+    const phone = params.phone || '';
     const problem = params.problem || '';
+    const platform = '';
     const date = params.date || '';
     const time = params.time || '';
-    
-    
     const timestamp = new Date();
-    const formattedDate = Utilities.formatDate(timestamp, "IST", "MM/dd/yyyy HH:mm:ss");
-    
-    
+    const formattedTimestamp = Utilities.formatDate(timestamp, "IST", "MM/dd/yyyy HH:mm:ss");
+
     sheet.appendRow([
-      formattedDate,  // Timestamp
-      name,           // Name
-      phone,          // Phone
-      email,          // Email
-      problem,        // Dental Concern
-      date,           // Preferred Date
-      time            // Preferred Time Slot
+      name,
+      email,
+      phone,
+      problem,
+      platform,
+      date,
+      time,
+      formattedTimestamp
     ]);
-    
-    
-    sheet.autoResizeColumns(1, 7);
-    
-    
+
+    sheet.autoResizeColumns(1, 8);
+
     const response = {
       result: 'success',
       message: 'Form data saved successfully'
     };
-    
-    
+
     return ContentService.createTextOutput(
-      params.callback ? 
-      params.callback + "(" + JSON.stringify(response) + ")" : 
+      callback ? 
+      callback + "(" + JSON.stringify(response) + ")" : 
       JSON.stringify(response)
     ).setMimeType(ContentService.MimeType.JAVASCRIPT);
-    
+
   } catch (error) {
-    
     const errorResponse = {
       result: 'error',
       message: error.toString()
     };
-    
-    
+
     return ContentService.createTextOutput(
-      params.callback ? 
-      params.callback + "(" + JSON.stringify(errorResponse) + ")" : 
+      e.parameter.callback ? 
+      e.parameter.callback + "(" + JSON.stringify(errorResponse) + ")" : 
       JSON.stringify(errorResponse)
     ).setMimeType(ContentService.MimeType.JAVASCRIPT);
   }
-} 
+}
