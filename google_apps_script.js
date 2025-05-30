@@ -12,8 +12,7 @@ function doGet(e) {
         'Response',
         'Platform',
         'Date',
-        'Time',
-        'Timestamp'
+        'Time'
       ]);
     }
 
@@ -21,7 +20,6 @@ function doGet(e) {
     const email = params.email || '';
     const phone = params.phone || '';
     const problem = params.problem || '';
-    const platform = '';
     const date = params.date || '';
     const time = params.time || '';
     const timestamp = new Date();
@@ -32,13 +30,12 @@ function doGet(e) {
       email,
       phone,
       problem,
-      platform,
+      formattedTimestamp,
       date,
-      time,
-      formattedTimestamp
+      time
     ]);
 
-    sheet.autoResizeColumns(1, 8);
+    sheet.autoResizeColumns(1, 7);
 
     const response = {
       result: 'success',
