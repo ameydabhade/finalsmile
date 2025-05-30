@@ -1,53 +1,76 @@
-// This is the code that should go in your Google Apps Script
+
 
 function doGet(e) {
   try {
-    // Get the parameters from the request
+    
     const params = e.parameter;
-    
-    // Get the callback function name
     const callback = params.callback;
-    
-    // Open the active spreadsheet
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     
-    // Extract data from parameters (excluding the callback)
+    
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow([
+        'Timestamp',
+        'Name',
+        'Phone',
+        'Email',
+        'Problem',
+        'Date',
+        'Time'
+      ]);
+    }
+    
+    
     const name = params.name || '';
     const phone = params.phone || '';
     const email = params.email || '';
+    const problem = params.problem || '';
     const date = params.date || '';
     const time = params.time || '';
-    const service = params.service || '';
     
-    // Append data to the sheet
+    
+    const timestamp = new Date();
+    const formattedDate = Utilities.formatDate(timestamp, "IST", "MM/dd/yyyy HH:mm:ss");
+    
+    
     sheet.appendRow([
-      name,
-      phone,
-      email,
-      date,
-      time,
-      service,
-      new Date() // timestamp
+      formattedDate,  // Timestamp
+      name,           // Name
+      phone,          // Phone
+      email,          // Email
+      problem,        // Dental Concern
+      date,           // Preferred Date
+      time            // Preferred Time Slot
     ]);
     
-    // Create response
+    
+    sheet.autoResizeColumns(1, 7);
+    
+    
     const response = {
       result: 'success',
       message: 'Form data saved successfully'
     };
     
-    // Return JSONP response
-    return ContentService.createTextOutput(callback + '(' + JSON.stringify(response) + ')')
-      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    
+    return ContentService.createTextOutput(
+      params.callback ? 
+      params.callback + "(" + JSON.stringify(response) + ")" : 
+      JSON.stringify(response)
+    ).setMimeType(ContentService.MimeType.JAVASCRIPT);
+    
   } catch (error) {
-    // Handle errors
+    
     const errorResponse = {
       result: 'error',
       message: error.toString()
     };
     
-    // Return error as JSONP
-    return ContentService.createTextOutput(callback + '(' + JSON.stringify(errorResponse) + ')')
-      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    
+    return ContentService.createTextOutput(
+      params.callback ? 
+      params.callback + "(" + JSON.stringify(errorResponse) + ")" : 
+      JSON.stringify(errorResponse)
+    ).setMimeType(ContentService.MimeType.JAVASCRIPT);
   }
 } 

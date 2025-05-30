@@ -2404,84 +2404,47 @@
       function handleSubmit(event) {
         event.preventDefault();
 
-        // Get form data
-        const form = document.getElementById("appointmentForm");
-        const formData = {
-          name: form.name.value,
-          phone: form.phone.value,
-          email: form.email.value,
-          problem: form.problem.value,
-          date: form.date.value,
-          time: form.time.value,
-        };
 
-        // Show loading indicator or message
+        const form = document.getElementById("appointmentForm");
+        const formData = new FormData(form);
+        
+        
         const submitBtn = form.querySelector(".submit-btn");
         const originalText = submitBtn.textContent;
         submitBtn.textContent = "Submitting...";
         submitBtn.disabled = true;
 
-        // Replace with your Google Apps Script Web App URL
-        const scriptURL =
-          "https://script.google.com/macros/s/AKfycbySBS1SCjsJYn_Dwv1eKBMkcGsVCYVYiM2usJ6WbjEz4SBAK4Fn7Frj13YcHJGQO3Y9bA/exec";
+        
+        const formDataObj = Object.fromEntries(formData);
+        console.log("Sending form data:", formDataObj);
 
-        // Use JSONP approach to bypass CORS limitations with Google Apps Script
-        sendDataViaJSONP(formData, scriptURL, function (success) {
-          if (success) {
-            alert(
-              "Thank you for booking your appointment! We will contact you shortly to confirm."
-            );
-            form.reset();
-            closePopup();
-          } else {
-            alert(
-              "There was an error submitting your form. Please try again later."
-            );
-          }
-          // Reset button state
+      
+        const scriptURL = "https://script.google.com/macros/s/AKfycbySBS1SCjsJYn_Dwv1eKBMkcGsVCYVYiM2usJ6WbjEz4SBAK4Fn7Frj13YcHJGQO3Y9bA/exec";
+  
+        const url = new URL(scriptURL);
+        for (let [key, value] of formData) {
+          url.searchParams.append(key, value);
+        }
+
+       
+        fetch(url, {
+          method: 'GET',
+          mode: 'no-cors', 
+        })
+        .then(response => {
+          console.log("Form submitted successfully");
+          alert("Thank you for booking your appointment! We will contact you shortly to confirm.");
+          form.reset();
+          closePopup();
+        })
+        .catch(error => {
+          console.error("Form submission error:", error);
+          alert("There was an error submitting your form. Please try again later or contact us directly.");
+        })
+        .finally(() => {
           submitBtn.textContent = originalText;
           submitBtn.disabled = false;
         });
-      }
-
-      // Function to handle CORS issues with Google Apps Script
-      function sendDataViaJSONP(data, url, callback) {
-        // Create a unique callback name
-        const callbackName =
-          "googleScript_" + Math.round(Math.random() * 1000000);
-
-        // Create a query string from the data object
-        const queryString = Object.keys(data)
-          .map(
-            (key) =>
-              `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-          )
-          .join("&");
-
-        // Set up the callback function
-        window[callbackName] = function (response) {
-          try {
-            callback(response.result === "success");
-          } catch (e) {
-            callback(false);
-          }
-          // Clean up - remove script and delete callback
-          document.body.removeChild(script);
-          delete window[callbackName];
-        };
-
-        // Add the script to the page
-        const script = document.createElement("script");
-        script.src = `${url}?${queryString}&callback=${callbackName}`;
-        document.body.appendChild(script);
-
-        // Set a timeout in case the script fails to load
-        setTimeout(function () {
-          if (window[callbackName]) {
-            callback(false);
-            delete window[callbackName];
-          }
-        }, 5000);
       }
 
       // Countdown Timer
@@ -2490,7 +2453,7 @@
         let minutesLeft = 20;
         let secondsLeft = 0;
 
-        // Update the display initially
+        
         document.getElementById("minutes").textContent = minutesLeft
           .toString()
           .padStart(2, "0");
@@ -2499,22 +2462,22 @@
           .padStart(2, "0");
 
         const countdownInterval = setInterval(function () {
-          // Decrease seconds
+          
           secondsLeft--;
 
-          // Handle time rollover
+          
           if (secondsLeft < 0) {
             secondsLeft = 59;
             minutesLeft--;
 
             if (minutesLeft < 0) {
-              // Reset to 20 minutes when it reaches zero
+              
               minutesLeft = 20;
               secondsLeft = 0;
             }
           }
 
-          // Update the display
+          
           document.getElementById("minutes").textContent = minutesLeft
             .toString()
             .padStart(2, "0");
@@ -2524,18 +2487,18 @@
         }, 1000);
       }
 
-      // FOMO Counters Animation - modified to handle removed element
+      
       function updateFOMOCounters() {
-        // Skip if elements don't exist anymore
+        
         const viewingCounter = document.getElementById("viewing-counter");
         const spotsCounter = document.getElementById("spots-counter");
 
         if (viewingCounter && spotsCounter) {
-          // Random viewers between 3-9
+          
           const viewers = Math.floor(Math.random() * 7) + 3;
           viewingCounter.textContent = viewers + " people";
 
-          // Spots counter logic - random between 1-3 with higher probability of 2-3
+          
           const spotsProb = Math.random();
           let spots;
           if (spotsProb < 0.2) {
@@ -2549,7 +2512,7 @@
         }
       }
 
-      // Ensure popup is shown
+      
       function ensurePopupShown() {
         const popup = document.getElementById("appointmentPopup");
         if (popup && popup.style.display !== "flex") {
@@ -2557,7 +2520,7 @@
         }
       }
 
-      // Throttle function for better scroll performance
+      
       function throttle(callback, delay) {
         let lastCall = 0;
         return function (...args) {
@@ -2570,24 +2533,20 @@
         };
       }
 
-      // Check for sticky footer visibility on page load
+
       document.addEventListener("DOMContentLoaded", function () {
-        // Start the countdown
+        
         startCountdown();
 
-        // Try to update FOMO counters (if they exist)
         updateFOMOCounters();
 
-        // Show popup after 2 seconds
         setTimeout(ensurePopupShown, 2000);
       });
 
-      // Update FOMO counters periodically (if they exist)
       setInterval(function () {
         updateFOMOCounters();
       }, 30000);
 
-      // Add click event listeners to all appointment buttons
       document.querySelectorAll(".btn-primary").forEach((button) => {
         if (
           button.textContent.trim() === "BOOK APPOINTMENT" ||
@@ -2597,7 +2556,6 @@
         }
       });
 
-      // Close popup when clicking outside
       document
         .getElementById("appointmentPopup")
         .addEventListener("click", function (event) {
@@ -2606,7 +2564,6 @@
           }
         });
 
-      // Section visibility animation
       const observerOptions = {
         root: null,
         rootMargin: "0px",
@@ -2626,28 +2583,24 @@
         observer.observe(section);
       });
 
-      // Add 3D card effect to elements
       document
         .querySelectorAll(".implant-type, .feature-box, .testimonial")
         .forEach((card) => {
           card.classList.add("card-3d");
         });
 
-      // Sticky CTA Logic
       window.addEventListener("scroll", function () {
         const stickyCta = document.getElementById("stickyCta");
         const scrollPosition = window.scrollY;
-        const scrollThreshold = 300; // Show after scrolling 300px
+        const scrollThreshold = 300; 
 
         if (scrollPosition > scrollThreshold) {
           stickyCta.style.display = "block";
-          // Allow display to take effect before adding the visible class
           requestAnimationFrame(() => {
             stickyCta.classList.add("visible");
           });
         } else {
           stickyCta.classList.remove("visible");
-          // Wait for transition to complete before hiding
           setTimeout(function () {
             if (!stickyCta.classList.contains("visible")) {
               stickyCta.style.display = "none";
@@ -2656,7 +2609,6 @@
         }
       });
 
-      // Check for sticky CTA visibility on initial load
       window.addEventListener("load", function () {
         const scrollPosition = window.scrollY;
         const scrollThreshold = 300;
@@ -2670,13 +2622,13 @@
         }
       });
 
-      // Enhanced FAQ functionality with animations
+      
       document.querySelectorAll(".faq-question").forEach((question) => {
         question.addEventListener("click", () => {
           const answer = question.nextElementSibling;
           const isActive = question.classList.contains("active");
 
-          // Close all other FAQs
+          
           document.querySelectorAll(".faq-question").forEach((q) => {
             if (q !== question) {
               q.classList.remove("active");
@@ -2684,7 +2636,7 @@
             }
           });
 
-          // Toggle current FAQ
+
           question.classList.toggle("active");
           answer.classList.toggle("show");
         });
