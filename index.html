@@ -928,8 +928,8 @@
         padding-bottom: 56.25%;
         height: 0;
         overflow: hidden;
-        max-width: 100%;
-        margin-bottom: 15px;
+        max-width: 800px;
+        margin: 0 auto 15px;
         border-radius: 10px;
       }
 
@@ -947,6 +947,8 @@
         border-radius: 10px;
         display: block;
         width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
       }
 
       /* Desktop Responsive Styles (won't affect mobile) */
@@ -1087,14 +1089,21 @@
         .transformation-videos {
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
           gap: 20px;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         .transformation-videos > div {
-          width: 32%;
+          width: 30%;
+          max-width: 400px;
           margin-bottom: 0;
+        }
+        
+        .transformation-videos video {
+          max-width: 100%;
         }
 
         /* Google reviews on desktop */
@@ -1964,18 +1973,35 @@
         <div
           style="
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            margin: 20px 0;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
             border-radius: 10px;
+            overflow: hidden;
           "
         >
-          <video controls autoplay loop playsinline poster="./Public/vids/1.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; object-fit: cover;">
-            <source src="./Public/vids/SMILE PRO 01.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <div style="padding-bottom: 56.25%; position: relative;">
+            <video 
+              controls 
+              autoplay 
+              loop 
+              playsinline 
+              poster="./Public/vids/1.png" 
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                object-fit: contain;
+                background-color: black;
+              "
+            >
+              <source src="./Public/vids/SMILE PRO 01.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
         <button class="btn btn-primary">Request a Call back ➤</button>
         <small
@@ -1984,11 +2010,38 @@
           999/-)</small
         >
         
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 10px;">
-          <video controls autoplay loop playsinline poster="./Public/vids/2.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; object-fit: cover;">
-            <source src="./Public/vids/SMILE PRO 02 MARATHI.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <div
+          style="
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: 10px;
+            overflow: hidden;
+          "
+        >
+          <div style="padding-bottom: 56.25%; position: relative;">
+            <video 
+              controls 
+              autoplay 
+              loop 
+              playsinline 
+              poster="./Public/vids/2.png" 
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                object-fit: contain;
+                background-color: black;
+              "
+            >
+              <source src="./Public/vids/SMILE PRO 02 MARATHI.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
         <button class="btn btn-primary" onclick="openPopup()">Request a Call back ➤</button>
         <small
