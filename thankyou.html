@@ -180,6 +180,59 @@
             margin-bottom: 30px;
         }
 
+        /* WhatsApp Prompt Styles */
+        .whatsapp-prompt {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            max-width: 300px;
+            transform: translateX(400px);
+            transition: transform 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        .whatsapp-prompt.show {
+            transform: translateX(0);
+        }
+
+        .whatsapp-prompt h3 {
+            color: #035891;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-prompt p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-prompt .btn {
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-prompt .close-prompt {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #666;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .whatsapp-prompt .close-prompt:hover {
+            color: #333;
+        }
+
         @media (max-width: 480px) {
             .thank-you-container {
                 padding: 30px 20px;
@@ -196,6 +249,17 @@
             .btn {
                 display: block;
                 margin: 10px 0;
+            }
+
+            .whatsapp-prompt {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+                transform: translateY(200px);
+            }
+
+            .whatsapp-prompt.show {
+                transform: translateY(0);
             }
         }
     </style>
@@ -236,11 +300,26 @@
         </div>
     </div>
 
+    <!-- WhatsApp Prompt -->
+    <div class="whatsapp-prompt" id="whatsappPrompt">
+        <button class="close-prompt" onclick="closeWhatsAppPrompt()">×</button>
+        <h3>Quick Response Needed?</h3>
+        <p>Connect with us on WhatsApp for faster appointment confirmation!</p>
+        <a href="https://wa.me/919595670092?text=Hi,%20I%20just%20booked%20an%20appointment%20on%20your%20website.%20Please%20confirm%20my%20slot." class="btn whatsapp">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+    </div>
+
     <script>
-        // Automatically trigger WhatsApp after 3 seconds
+        // Show WhatsApp prompt after 3 seconds
         setTimeout(function() {
-            window.location.href = "https://wa.me/919595670092?text=Hi,%20I%20just%20booked%20an%20appointment%20on%20your%20website.%20Please%20confirm%20my%20slot.";
+            document.getElementById('whatsappPrompt').classList.add('show');
         }, 3000);
+
+        // Function to close WhatsApp prompt
+        function closeWhatsAppPrompt() {
+            document.getElementById('whatsappPrompt').classList.remove('show');
+        }
     </script>
 </body>
 </html> 
