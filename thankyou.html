@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - SmilePro Dental Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1892690311562996');
+      fbq('track', 'PageView');
+      fbq('track', 'Lead');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1892690311562996&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 50px;
+        }
+
+        h1 {
+            color: #035891;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        .details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .details h2 {
+            color: #035891;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .details ul {
+            list-style: none;
+        }
+
+        .details ul li {
+            margin-bottom: 10px;
+            color: #444;
+            display: flex;
+            align-items: center;
+        }
+
+        .details ul li i {
+            color: #ff9c00;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #035891;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(3, 88, 145, 0.2);
+        }
+
+        .btn.whatsapp {
+            background-color: #25D366;
+        }
+
+        .social-proof {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .rating {
+            color: #ff9c00;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .review-count {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 480px) {
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <img src="./Public/logo.png" alt="SmilePro Dental Care" class="logo">
+        
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+
+        <h1>Thank You for Choosing SmilePro!</h1>
+        <p>Your appointment request has been successfully received. Our team will contact you shortly to confirm your appointment details.</p>
+
+        <div class="details">
+            <h2>What Happens Next?</h2>
+            <ul>
+                <li><i class="fas fa-phone"></i> We'll call you within the next 2 hours</li>
+                <li><i class="fas fa-calendar-check"></i> Confirm your preferred appointment time</li>
+                <li><i class="fas fa-clipboard-list"></i> Complete initial consultation paperwork</li>
+                <li><i class="fas fa-tooth"></i> Begin your journey to a perfect smile</li>
+            </ul>
+        </div>
+
+        <a href="tel:+919595670092" class="btn">Call Us Now ☏</a>
+        <a href="https://wa.me/919595670092" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+
+        <div class="social-proof">
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="review-count">Rated 4.9/5 based on 120+ patient reviews</p>
+        </div>
+    </div>
+
+    <script>
+        // Automatically trigger WhatsApp after 3 seconds
+        setTimeout(function() {
+            window.location.href = "https://wa.me/919595670092?text=Hi,%20I%20just%20booked%20an%20appointment%20on%20your%20website.%20Please%20confirm%20my%20slot.";
+        }, 3000);
+    </script>
+</body>
+</html> 

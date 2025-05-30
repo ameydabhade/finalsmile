@@ -2435,29 +2435,24 @@
       function handleSubmit(event) {
         event.preventDefault();
 
-
         const form = document.getElementById("appointmentForm");
         const formData = new FormData(form);
-
         
         const submitBtn = form.querySelector(".submit-btn");
         const originalText = submitBtn.textContent;
         submitBtn.textContent = "Submitting...";
         submitBtn.disabled = true;
 
-        
         const formDataObj = Object.fromEntries(formData);
         console.log("Sending form data:", formDataObj);
 
-      
         const scriptURL = "https://script.google.com/macros/s/AKfycbyBvwWiVfmGOeSniSOKFQKYWUq1xOHYp5mTJfNyf2P5GUE-QKeYjwPmpmkaUASI4DaI/exec";
-  
+
         const url = new URL(scriptURL);
         for (let [key, value] of formData) {
           url.searchParams.append(key, value);
         }
 
-       
         fetch(url, {
           method: 'GET',
           mode: 'no-cors', 
@@ -2471,9 +2466,9 @@
             value: 1.00,
             currency: 'INR'
           });
-          showSuccessPopup();
-            form.reset();
-          closePopup(); // Close the appointment form popup
+          
+          // Redirect to thank you page instead of showing popup
+          window.location.href = 'thankyou.html';
         })
         .catch(error => {
           console.error("Form submission error:", error);
