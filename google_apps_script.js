@@ -24,7 +24,7 @@ function doGet(e) {
     const time = params.time || '';
     const timestamp = new Date();
     const formattedTimestamp = Utilities.formatDate(timestamp, "IST", "MM/dd/yyyy HH:mm:ss");
-
+    
     sheet.appendRow([
       name,
       email,
@@ -34,14 +34,14 @@ function doGet(e) {
       date,
       time
     ]);
-
+    
     sheet.autoResizeColumns(1, 7);
 
     const response = {
       result: 'success',
       message: 'Form data saved successfully'
     };
-
+    
     return ContentService.createTextOutput(
       callback ? 
       callback + "(" + JSON.stringify(response) + ")" : 
@@ -53,11 +53,11 @@ function doGet(e) {
       result: 'error',
       message: error.toString()
     };
-
+    
     return ContentService.createTextOutput(
       e.parameter.callback ? 
       e.parameter.callback + "(" + JSON.stringify(errorResponse) + ")" : 
       JSON.stringify(errorResponse)
     ).setMimeType(ContentService.MimeType.JAVASCRIPT);
   }
-}
+} 

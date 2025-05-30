@@ -2438,7 +2438,7 @@
 
         const form = document.getElementById("appointmentForm");
         const formData = new FormData(form);
-        
+
         
         const submitBtn = form.querySelector(".submit-btn");
         const originalText = submitBtn.textContent;
@@ -2472,7 +2472,7 @@
             currency: 'INR'
           });
           showSuccessPopup();
-          form.reset();
+            form.reset();
           closePopup(); // Close the appointment form popup
         })
         .catch(error => {
@@ -2496,7 +2496,7 @@
         const successPopup = document.getElementById("successPopup");
         if (successPopup) {
           successPopup.style.display = "none";
-        }
+          }
       }
 
       // Countdown Timer
