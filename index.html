@@ -2503,6 +2503,14 @@
         const formDataObj = Object.fromEntries(formData);
         console.log("Sending form data:", formDataObj);
 
+        // Track the lead event immediately when form is submitted
+        fbq('track', 'Lead', {
+          content_name: 'Appointment Booking',
+          content_category: 'Dental Services',
+          value: 1.00,
+          currency: 'INR'
+        });
+
         const scriptURL = "https://script.google.com/macros/s/AKfycbyBvwWiVfmGOeSniSOKFQKYWUq1xOHYp5mTJfNyf2P5GUE-QKeYjwPmpmkaUASI4DaI/exec";
 
         const url = new URL(scriptURL);
@@ -2516,15 +2524,7 @@
         })
         .then(response => {
           console.log("Form submitted successfully");
-          // Track the form submission event with Facebook Pixel
-          fbq('track', 'Lead', {
-            content_name: 'Appointment Booking',
-            content_category: 'Dental Services',
-            value: 1.00,
-            currency: 'INR'
-          });
-          
-          // Redirect to thank you page instead of showing popup
+          // Redirect to thank you page
           window.location.href = 'thankyou.html';
         })
         .catch(error => {
